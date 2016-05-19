@@ -1,0 +1,31 @@
+#!/bin/bash
+
+lighttpd-enable-mod fastcgi
+lighttpd-enable-mod fastcgi-php
+
+#permissions
+chown -R www-data:www-data /srv/rpirrigate
+chmod -R 775 /srv/rpirrigate
+
+#create log files and give permissions
+
+mkdir -p /var/log/rpirrigate
+touch /var/log/rpirrigate/status.log
+touch /var/log/rpirrigate/error.log
+chown -R www-data:www-data /var/log/rpirrigate
+chmod -R 775 /var/log/rpirrigate
+
+chmod 755 /etc/logrotate.d/rpirrigate
+chown root:root /etc/logrotate.d/rpirrigate
+
+chmod 755 /etc/init.d/rpirrigate
+chown root:root /etc/init.d/rpirrigate
+
+# TODO change directory and port of lighttpd
+
+insserv rpirrigate
+
+#Start services
+
+service rpirrigate start
+service lighttpd restart
