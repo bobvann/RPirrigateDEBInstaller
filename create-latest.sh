@@ -27,3 +27,5 @@ sed "s/Version: 0.0.0/Version: $VERSION/" default-control > debian/DEBIAN/contro
 dpkg-deb --build debian
 
 mv debian.deb $PACKAGENAME
+
+git add $PACKAGENAME
