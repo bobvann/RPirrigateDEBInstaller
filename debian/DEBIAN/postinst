@@ -21,7 +21,10 @@ chown root:root /etc/logrotate.d/rpirrigate
 chmod 755 /etc/init.d/rpirrigate
 chown root:root /etc/init.d/rpirrigate
 
-# TODO change directory and port of lighttpd
+# change directory and port of lighttpd
+sed "s/server.document-root        = \"/var/www/html\"/server.document-root        = \"/srv/rpirrigate/web\"/" /etc/lighttpd/lighttpd.conf > /etc/lighttpd/lighttpd.conf
+sed "s/server.port                 = 80/server.port                 = 667/" /etc/lighttpd/lighttpd.conf > /etc/lighttpd/lighttpd.conf
+
 
 insserv rpirrigate
 
