@@ -1,6 +1,6 @@
 Package: rpirrigate
 Version: 0.0.0
 Architecture: all
-Depends: lighttpd, php5-common, php5-cgi, php5, php-pear, php5-sqlite, rpi.gpio, sqlite3
+Depends: lighttpd, php5-common, php5-cgi, php5, php-pear, php5-sqlite, python-rpi.gpio, sqlite3
 Maintainer: Bob Vann <example@gmail.com>
 Description: RPirrigate install package
