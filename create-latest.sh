@@ -24,4 +24,6 @@ cp /tmp/RPirrigate/install/init.d.erb debian/etc/init.d/rpirrigate
 #change version in DEBIAN/control
 sed "s/Version: 0.0.0/Version: $VERSION/" default-control > debian/DEBIAN/control
 
-dpkg-deb --build $PACKAGENAME debian
+dpkg-deb --build debian
+
+mv debian.deb $PACKAGENAME
